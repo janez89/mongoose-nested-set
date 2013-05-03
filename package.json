@@ -13,7 +13,7 @@
   "version": "0.0.4",
   "repository": {
     "type": "git",
-    "url": "git://github.com/groupdock/mongoose-nested-set.git"
+    "url": "git://github.com/janez89/mongoose-nested-set.git"
   },
   "main": "index.js",
   "scripts": {
