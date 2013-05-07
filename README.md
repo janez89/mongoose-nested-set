@@ -16,7 +16,7 @@ var UserSchema = new Schema({
 });
 
 // Include plugin
-UserSchema.plugin(NestedSetPlugin);
+UserSchema.plugin(NestedSetPlugin, {root:'517b04a2b85f33ed79000003'});
 
 var User = mongoose.model('User', UserSchema);
 ```
@@ -30,6 +30,10 @@ The plugin adds the following attributes to the model:
 * rgt: holds the right value of the node in the tree
 
 * parentId: holds the _id of the parent node
+
+* childs: children elements (only whith tree method)
+
+* lvl: nested set level (only whith tree method)
 
 ### Examples
 
@@ -51,6 +55,23 @@ User.findOne({username: 'michael'}, function(err, michael) {
 });
 ```
 
+```javascript
+// from root 
+User.tree(function(err, tree){
+  console.log(tree); // { name: "some name", lft: 1, rgt: 3, lvl: 0, childs: [...]} 
+});
+// from another element
+User.tree('517b04a2b85f33ed79000003', function(err, tree){
+  console.log(tree); // { name: "some name", lft: 1, rgt: 3, lvl: 0, childs: [...]} 
+});
+
+User.findOne({username: 'michael'}, function(err, michael) {
+  michael.getChildren(function(err, childrenTree){
+    console.log(childrenTree);
+  });
+});
+```
+
 For more examples, see our [test suite] (https://github.com/groupdock/mongoose-nested-set/blob/master/tests/nested_set_test.js).
 
 ### API
@@ -58,6 +79,8 @@ For more examples, see our [test suite] (https://github.com/groupdock/mongoose-n
 ### Static methods
 
 * Model.rebuildTree(rootNode, leftValueOfRootNode, callback)
+* Model.tree(rootNodeId, callback [,withoutParent: false])
+* Model.tree(callback [,withoutParent: false])
 
 #### Instance methods that return values:
 
@@ -83,6 +106,8 @@ The following methods must be used with a callback. The callback method will be 
 * selfAndChildren(callback)
 
 * children(callback)
+
+* getChildren(callback)
 
 * selfAndDescendants(callback)
 
