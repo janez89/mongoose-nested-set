@@ -31,9 +31,9 @@ The plugin adds the following attributes to the model:
 
 * parentId: holds the _id of the parent node
 
-* childs: children elements (only whith tree method)
+* childs: children elements (only whith tree and getChildren method)
 
-* lvl: nested set level (only whith tree method)
+* lvl: nested set level (only whith tree and getChildren method)
 
 ### Examples
 
