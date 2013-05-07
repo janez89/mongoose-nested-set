@@ -2,6 +2,21 @@
 
 A mongoose plugin implementing the nested set pattern for mongoose models
 
+## Overview
+* [Usage](#usage)
+* [Attributes](#attributes)
+* [Examples](#examples)
+* [API](#api)
+  * [Static methods](#static-methods)
+  * [Instance methods that return values](#instance-methods-that-return-values)
+  * [Instance methods that use a callback function](#instance-methods-that-use-a-callback-function)
+* [Related Links/Resources](#related-linksresources)
+* [Development](#development)
+* [Changelog](#changelog)
+* [Authors](#authors)
+* [Sponsor](#sponsor)
+
+
 ### Usage
 
 ```javascript
@@ -170,6 +185,7 @@ npm test
 ### Authors
 
 * Luc Castera: [https://github.com/dambalah](https://github.com/dambalah)
+* Janos Meszaros: [https://github.com/janez89](https://github.com/janez89)
 
 ### Sponsor
 
