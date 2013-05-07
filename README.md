@@ -60,14 +60,20 @@ User.findOne({username: 'michael'}, function(err, michael) {
 User.tree(function(err, tree){
   console.log(tree); // { name: "some name", lft: 1, rgt: 3, lvl: 0, childs: [...]} 
 });
+
 // from another element
 User.tree('517b04a2b85f33ed79000003', function(err, tree){
   console.log(tree); // { name: "some name", lft: 1, rgt: 3, lvl: 0, childs: [...]} 
 });
 
+// from another element without parent
+User.tree('517b04a2b85f33ed79000003', function(err, tree){
+  console.log(tree); // { name: "some name", lft: 1, rgt: 3, lvl: 0, childs: [...]} 
+}, true); // <-- this set true
+
 User.findOne({username: 'michael'}, function(err, michael) {
   michael.getChildren(function(err, childrenTree){
-    console.log(childrenTree);
+    console.log(childrenTree); // [ { name: "some name", lft: 1, rgt: 3, lvl: 0, childs: [...]} , ... ]
   });
 });
 ```
@@ -140,6 +146,11 @@ npm test
 
 
 ### Changelog
+
+#### May 05, 2013: Version 0.0.5
+* added method getChildren
+* added static method tree
+* added lvl, childs attributes only with tree and getChildren methods. (name childs because name of children is reserved)
 
 #### Oct 26, 2012: Version 0.0.4
 
