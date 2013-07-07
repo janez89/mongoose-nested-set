@@ -1,5 +1,5 @@
 {
-  "author": "Luc Castera <luc.castera@gmail.com> (https://github.com/dambalah), Janos Meszaros <m.janee@gmail.com>",
+  "author": "Luc Castera <luc.castera@gmail.com> (https://github.com/dambalah)",
   "name": "mongoose-nested-set",
   "description": "A mongoose plugin implementing the nested set pattern (aka as trees or hierarchies) for mongoose models",
   "homepage": "https://github.com/groupdock/mongoose-nested-set",
@@ -28,5 +28,11 @@
   },
   "devDependencies": {
     "nodeunit": "~0.7.4"
+  },
+  "contributors": [
+  {
+    "name": "Janos Meszaros", 
+    "url": "https://github.com/janez89/"
   }
+  ]
 }
